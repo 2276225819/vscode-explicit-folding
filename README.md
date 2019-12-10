@@ -30,6 +30,32 @@ In your Settings:
             "begin": "<",
             "end": "/>"
         }
+    ],
+    "php":[
+        {
+            "comment":"//"
+        },
+        {
+            "begin": "\/*",
+            "end": "*\/",
+            "offsetTop":1,
+        },
+        {
+            "begin":"<?",
+            "end":"?>"
+        },
+        {
+            "begin": "{",
+            "end": "}"
+        },
+        {
+            "begin": "[",
+            "end": "]"
+        },
+        {
+            "begin": "(",
+            "end": ")"
+        },
     ]
 }
 ```
@@ -55,9 +81,21 @@ or with **regex**:
             "begin": "<",
             "end": "/>"
         }
-    ]
+    ],
+    "php":{
+        "comment":"//",
+        "beginRegex": "\\(|\\[|\\{|\\<\\?",
+        "endRegex": "\\}|\\]|\\)|\\?\\>"
+    }
 }
 ```
+## Configuration
+* `folding.*.begin` & `folding.*.end`  matching folding ranges using string 
+* `folding.*.beginRegex` & `folding.*.endRegex`  matching folding range using regular expressions
+* `folding.*.offsetTop` show first line when collapsed
+* `folding.*.offsetBottom` show last line when collapsed
+* `folding.*.comment` mismatched entire line of comments using string
+* `folding.*.autoFix` multi-line comments fix non-matching folds
 
 ## Migrate from v0.2 to v0.3
 
